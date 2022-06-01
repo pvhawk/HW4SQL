@@ -15,12 +15,13 @@ LEFT JOIN artistsalbums ON artistsalbums.artist_id = artists.id
 JOIN albums ON albums.id = artistsalbums.album_id 
 WHERE EXTRACT(YEAR FROM release) <> '2020'
 
-SELECT c.name FROM collections c
-JOIN collectionstracks ct ON ct.collection_id =c.id 
-JOIN tracks t ON ct.track_id = c.id 
-JOIN albums a ON t.album_id = a.id 
+SELECT c.name  FROM collections c
+JOIN collectionstracks ct ON ct.collection_id = c.id 
+JOIN tracks t ON t.id = ct.track_id  
+JOIN albums a ON  a.id = t.album_id 
 JOIN artistsalbums aa ON a.id = aa.album_id 
 JOIN artists ON aa.artist_id = artists.id
+WHERE artists.name = 'Ария'
 
 
 
