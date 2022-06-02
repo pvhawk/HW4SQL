@@ -40,3 +40,11 @@ JOIN tracks t ON t.album_id  = a2.id
 WHERE time = (SELECT MIN(time) FROM tracks)
 
 
+SELECT a.name, COUNT(t.name) FROM albums a
+JOIN tracks t ON t.album_id = a.id
+GROUP BY a.name
+ORDER BY COUNT(t.name)
+LIMIT 1
+
+
+
